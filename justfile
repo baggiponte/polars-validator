@@ -15,7 +15,7 @@ check: (needs "bun" "uv")
     -uvx mypy --strict -- src tests
 
     echo "\n========== pyright =========="
-    bunx pyright -- src tests
+    bunx pyright src tests
 
 [private]
 needs +commands:

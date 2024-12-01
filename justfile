@@ -12,7 +12,7 @@ lint: (needs "uv")
 check: (needs "bun" "uv")
     echo "=========== mypy ============"
     # `-` will continue execution even if the command fails
-    -uvx mypy -- src tests
+    -uvx mypy --strict -- src tests
 
     echo "\n========== pyright =========="
     bunx pyright -- src tests

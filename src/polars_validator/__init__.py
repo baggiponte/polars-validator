@@ -29,7 +29,7 @@ class DataFrame(pl.DataFrame, Generic[T]):
         self.validation_schema: pl.Schema = convert_schema_to_polars(schema)
 
     def validate(self) -> bool:
-        return self._schema == self.validation_schema
+        return self.schema == self.validation_schema
 
 
 def validate_schema(

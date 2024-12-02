@@ -7,7 +7,7 @@ format: (needs "uv")
     uvx ruff check --select=I,RUF022 --fix -- src
 
 lint: (needs "uv")
-    uvx ruff check -- src test
+    uvx ruff check -- src tests
 
 check: (needs "bun" "uv")
     echo "=========== mypy ============"
@@ -16,6 +16,9 @@ check: (needs "bun" "uv")
 
     echo "\n========== pyright =========="
     bunx pyright src tests
+
+test: (needs "pytest")
+    uv run pytest tests
 
 [private]
 needs +commands:

@@ -2,7 +2,7 @@ from typing import TypedDict
 
 import polars as pl
 
-from polars_validator import DataFrame, validate_schema
+from polars_validator import DataFrame, check_schema
 
 
 def test_validate_schema():
@@ -11,7 +11,7 @@ def test_validate_schema():
         name: str
         email: str
 
-    @validate_schema(User)
+    @check_schema(User)
     def get_users_from_db() -> pl.DataFrame:
         # Simulate database query
         data = [

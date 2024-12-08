@@ -9,12 +9,10 @@ format: (needs "uv")
 lint: (needs "uv")
     uvx ruff check -- src tests
 
-check: (needs "bun" "uv")
-    echo "=========== mypy ============"
-    # `-` will continue execution even if the command fails
-    -uvx mypy --strict -- src tests
+mypy: (needs "uv")
+    uvx mypy --strict -- src tests
 
-    echo "\n========== pyright =========="
+pyright: (needs "bun")
     bunx pyright src tests
 
 test: (needs "pytest")

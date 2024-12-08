@@ -1,6 +1,7 @@
 set quiet := true
 
-default: format lint check
+lint: format
+    uvx ruff check -- src test
 
 format: (needs "uv")
     uvx ruff format -- src

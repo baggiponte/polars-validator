@@ -35,5 +35,6 @@ venv = ".venv"
 
 [dependency-groups]
 dev = [
+    "pre-commit-uv>=4.1.4",
     "pytest>=8.3.4",
 ]

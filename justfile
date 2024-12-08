@@ -16,8 +16,8 @@ mypy: (needs "uv")
 pyright: (needs "bun")
     bunx pyright src tests
 
-test: (needs "pytest")
-    uv run pytest tests
+test: (needs "uv")
+    uv run pytest -- tests
 
 [private]
 needs +commands:

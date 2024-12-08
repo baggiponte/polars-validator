@@ -5,6 +5,7 @@ import polars as pl
 
 __all__ = [
     "DataFrame",
+    "LazyFrame",
 ]
 
 
@@ -18,6 +19,21 @@ class DataFrame(pl.DataFrame, Generic[S, H]):
     def __init__(
         self,
         data: pl.DataFrame,
+        schema: type[S],
+        height: H = None,
+    ) -> None:
+        super().__init__(data)
+        self._schema_base: type[S] = schema
+        self._schema_height: H = height
+        self._validation_schema: pl.Schema = _convert_schema_to_polars(schema)
+
+
+class LazyFrame(pl.LazyFrame, Generic[S, H]):
+    """No-op class to make Polars LazyFrames generics."""
+
+    def __init__(
+        self,
+        data: pl.LazyFrame,
         schema: type[S],
         height: H = None,
     ) -> None:

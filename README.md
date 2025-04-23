@@ -1,6 +1,6 @@
 # Polars Validator
 
-Make your Polars DataFrames generics!
+Make your Polars DataFrames generic types!
 
 ## Installation
 
